@@ -1,0 +1,22 @@
+.card-edustore-image-container {
+    top: 10px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 152px;
+    height: 125px;
+    position: relative;
+}
+.card-edustore-image {
+    background: #fff;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}

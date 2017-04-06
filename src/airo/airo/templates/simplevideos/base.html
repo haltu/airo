@@ -1,0 +1,16 @@
+{% extends "simplevideos:simplevideos/base.html" %}
+{% load compress %}
+
+{% block html_attrs %}{{ block.super }} class="{% if user.get_profile and user.get_profile.preferred_background %}{{ user.get_profile.preferred_background }}{% else %}background-choice-1{% endif %}"{% endblock %}
+
+{% block after_head %}
+    <link rel="stylesheet" href="{{ STATIC_URL }}simplevideos/css/theme-desktoplite.css">
+    {% compress css %}
+    {% block styles %}
+      <style>
+        @import 'dreamcards/css/font-awesome.min.css';
+        @import 'dreamcards/css/dl-backgrounds';
+      </style>
+    {% endblock %}
+    {% endcompress %}
+{% endblock %}

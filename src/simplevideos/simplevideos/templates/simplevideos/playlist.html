@@ -1,0 +1,60 @@
+{% extends "simplevideos/base.html" %}
+
+{% block meta_title %}{{ playlist.snippet.title }} - {{ block.super }}{% endblock %}
+
+{% block after_head %}
+    {{ block.super }}
+    <noscript>
+      <style>
+        .lazy {
+          display: none;
+        }
+      </style>
+    </noscript>
+{% endblock %}
+
+{% block after_body %}
+    {{ block.super }}
+    <script src="{{ STATIC_URL }}simplevideos/js/layzr-1.4.0.min.js"></script>
+    <script>
+      var
+      layzr = new Layzr({
+        selector: '.video-thumbnail-image.lazy',
+        attr: 'data-src',
+      });
+    </script>
+{% endblock %}
+
+{% block content %}
+
+  <div class="container main">
+
+    <div class="row">
+      <div class="col-lg-12">
+        <h1 class="page-header">
+          {{ playlist.snippet.title }}
+          <small>{{ playlist.snippet.description }}</small>
+        </h1>
+      </div>
+    </div>
+    
+    <div class="row">
+    {% for video in videos %}
+      <div class="col-lg-5ths col-md-3 col-sm-4 col-xs-6 video-thumbnail">
+        <a href="{% url simplevideos.video playlist.id video.snippet.resourceId.videoId %}" class="video-thumbnail-image-link embed-responsive embed-responsive-16by9 text-center">
+          <img class="video-thumbnail-image lazy embed-responsive-item"{% if forloop.counter0 < 16 %} src="{{ video.snippet.thumbnails.medium.url }}"{% else %} data-src="{{ video.snippet.thumbnails.medium.url }}"{% endif %} alt="{{ video.snippet.title }}" width="{{ video.snippet.thumbnails.medium.width }}" height="{{ video.snippet.thumbnails.medium.height }}" />
+          <noscript>
+            <img class="video-thumbnail-image embed-responsive-item" src="{{ video.snippet.thumbnails.medium.url }}" alt="{{ video.snippet.title }}" width="{{ video.snippet.thumbnails.medium.width }}" height="{{ video.snippet.thumbnails.medium.height }}" />
+          </noscript>
+        </a>
+        <h4 class="video-thumbnail-title">
+          <a href="{% url simplevideos.video playlist.id video.snippet.resourceId.videoId %}" title="{{ video.snippet.title }}">{{ video.snippet.title }}</a>
+        </h4>
+        <p class="video-thumbnail-description" title="{{ video.snippet.description }}">{{ video.snippet.description }}</p>
+      </div>
+    {% endfor %}
+    </div>
+
+  </div>
+
+{% endblock %}

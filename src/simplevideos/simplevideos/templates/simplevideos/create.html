@@ -1,0 +1,19 @@
+{% extends "simplevideos/base.html" %}
+{% load i18n %}
+
+{% block content %}
+
+    <form class="create-form" action="" method="post">
+      {% csrf_token %}
+      <p>{% trans "Enter a URL to a video or a playlist" %}</p>
+      <p>
+        <input class="create-form-input" type="text" name="url" />
+        <button class="create-form-button" type="submit">&gt;</button>
+      </p>
+      {% if form_error %}
+      <p class="create-form-error">{{ form_error.display }}</p>
+      {% endif %}
+      <p></p>
+    </form>
+
+{% endblock %}

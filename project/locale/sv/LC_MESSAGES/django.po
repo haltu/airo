@@ -1,0 +1,375 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-09-15 10:05+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+#: desktoplite/desktoplite/admin.py:20
+msgid "System Provided"
+msgstr "Systemet ägs av"
+
+#: desktoplite/desktoplite/admin.py:25
+msgid "True"
+msgstr "Ja"
+
+#: desktoplite/desktoplite/admin.py:26
+msgid "False"
+msgstr "Nej"
+
+#: desktoplite/desktoplite/models.py:21 desktoplite/desktoplite/models.py:96
+#: desktoplite/desktoplite/models.py:162
+msgid "Title"
+msgstr "Titel"
+
+#: desktoplite/desktoplite/models.py:22
+msgid "URL"
+msgstr "URL"
+
+#: desktoplite/desktoplite/models.py:23 desktoplite/desktoplite/models.py:75
+msgid "Thumbnail"
+msgstr "Bild"
+
+#: desktoplite/desktoplite/models.py:26 desktoplite/desktoplite/models.py:105
+msgid "Category"
+msgstr "Kategori"
+
+#: desktoplite/desktoplite/models.py:27 desktoplite/desktoplite/models.py:97
+#: desktoplite/desktoplite/models.py:163
+msgid "Owner"
+msgstr "Ägare"
+
+#: desktoplite/desktoplite/models.py:27
+msgid "Card with no owner is a system card visible to everyone."
+msgstr "Kort utan ägare är ett system kort synliga för alla."
+
+#: desktoplite/desktoplite/models.py:30
+msgid "Card type"
+msgstr "Korttyp"
+
+#: desktoplite/desktoplite/models.py:31 desktoplite/desktoplite/models.py:100
+msgid "Language"
+msgstr "Språk"
+
+#: desktoplite/desktoplite/models.py:31
+msgid ""
+"If a language is selected, card is displayed ONLY if user is using that "
+"language."
+msgstr ""
+"Om ett språk är valt, är kortet visas endast om användaren använder det "
+"språket."
+
+#: desktoplite/desktoplite/models.py:33
+#, fuzzy
+msgid "Shared to groups"
+msgstr "Dela till grupper"
+
+#: desktoplite/desktoplite/models.py:33
+msgid "Groups this card is shared to"
+msgstr ""
+
+#: desktoplite/desktoplite/models.py:35
+#, fuzzy
+msgid "Shared to users"
+msgstr "Dela till grupper"
+
+#: desktoplite/desktoplite/models.py:35
+msgid "Users this card is directly shared to"
+msgstr ""
+
+#: desktoplite/desktoplite/models.py:36
+msgid "Default for new users"
+msgstr "Standard för nya användare"
+
+#: desktoplite/desktoplite/models.py:36
+msgid "Attach this card automatically in a new user's desktop"
+msgstr "Bifoga kortet automatiskt i en ny användarens skrivbord"
+
+#: desktoplite/desktoplite/models.py:37
+msgid "Permission"
+msgstr "Tillstånd"
+
+#: desktoplite/desktoplite/models.py:37
+msgid ""
+"Limit visibility of card to users with permission. If a permission is "
+"selected, ONLY users with that permission can see the card."
+msgstr "Gräns synlighet kort för användare med tillstånd. Om tillstånd väljs, "
+"kan bara användare med att tillstånd finns kortet."
+
+#: desktoplite/desktoplite/models.py:44 desktoplite/desktoplite/models.py:142
+msgid "Card"
+msgstr "Kort"
+
+#: desktoplite/desktoplite/models.py:45 desktoplite/desktoplite/models.py:131
+msgid "Cards"
+msgstr "Kort"
+
+#: desktoplite/desktoplite/models.py:97
+msgid "Category with no owner is a system category visible to everyone."
+msgstr "Kategori utan ägare är en systemkategori synlig för alla."
+
+#: desktoplite/desktoplite/models.py:100
+msgid ""
+"If a language is selected, category is displayed ONLY if user is using that "
+"language."
+msgstr ""
+"Om ett språk är valt kategori visas endast om användaren använder det "
+"språket."
+
+#: desktoplite/desktoplite/models.py:106
+msgid "Categories"
+msgstr "Kategorier"
+
+#: desktoplite/desktoplite/models.py:125
+msgid "Amount of cards"
+msgstr "Antal kort"
+
+#: desktoplite/desktoplite/models.py:129
+msgid "Cards in this category"
+msgstr "Kort i denna kategori"
+
+#: desktoplite/desktoplite/models.py:143 desktoplite/desktoplite/models.py:171
+msgid "Page"
+msgstr "Sida"
+
+#: desktoplite/desktoplite/models.py:145
+msgid "Size X"
+msgstr "Storlek X"
+
+#: desktoplite/desktoplite/models.py:146
+msgid "Size Y"
+msgstr "Storlek Y"
+
+#: desktoplite/desktoplite/models.py:147
+msgid "Order"
+msgstr "Ordning"
+
+#: desktoplite/desktoplite/models.py:172
+msgid "Pages"
+msgstr "Sidor"
+
+#: desktoplite/desktoplite/models.py:186
+msgid "Start page"
+msgstr "Hem sida"
+
+#: desktoplite/desktoplite/models.py:201
+msgid "UserGroup"
+msgstr ""
+
+#: desktoplite/desktoplite/models.py:202
+msgid "UserGroups"
+msgstr ""
+
+#: desktoplite/desktoplite/useradmin.py:25
+msgid "category"
+msgstr "kategori"
+
+#: desktoplite/desktoplite/useradmin.py:33
+msgid "None"
+msgstr "Odefinierad"
+
+#: desktoplite/desktoplite/templates/base.html:31
+#: simplevideos/simplevideos/templates/simplevideos/base.html:6
+msgid "#service-name"
+msgstr "Airo"
+
+#: desktoplite/desktoplite/templates/desktoplite/desktop.html:4
+msgid "Desktop"
+msgstr "Skrivbord"
+
+#: desktoplite/desktoplite/templates/desktoplite/desktop.html:27
+msgid "Log out"
+msgstr "Logga ut"
+
+#: desktoplite/desktoplite/templates/desktoplite/desktop.html:35
+#: desktoplite/desktoplite/templates/desktoplite/desktop.html:221
+#: desktoplite/desktoplite/templates/desktoplite/desktop.html:237
+msgid "Are you sure?"
+msgstr "Är du säker?"
+
+#: desktoplite/desktoplite/templates/desktoplite/desktop.html:36
+msgid "Yes"
+msgstr "Ja"
+
+#: desktoplite/desktoplite/templates/desktoplite/desktop.html:37
+msgid "No"
+msgstr "Nej"
+
+#: desktoplite/desktoplite/templates/desktoplite/desktop.html:48
+msgid "Select language"
+msgstr "Välj ett språk"
+
+#: desktoplite/desktoplite/templates/desktoplite/desktop.html:59
+msgid "Choose desktop background"
+msgstr "Välj bakgrund"
+
+#: desktoplite/desktoplite/templates/desktoplite/desktop.html:107
+msgid "System cards"
+msgstr "Systemets kort"
+
+#: desktoplite/desktoplite/templates/desktoplite/desktop.html:113
+msgid "Shared with me"
+msgstr "Delas med mig"
+
+#: desktoplite/desktoplite/templates/desktoplite/desktop.html:118
+msgid "My cards"
+msgstr "Mina kort"
+
+#: desktoplite/desktoplite/templates/desktoplite/desktop.html:152
+msgid "Edit Category"
+msgstr "Redigera kategori"
+
+#: desktoplite/desktoplite/templates/desktoplite/desktop.html:153
+msgid "Add card"
+msgstr "Lägg till ett kort"
+
+#: desktoplite/desktoplite/templates/desktoplite/desktop.html:158
+msgid "Category title"
+msgstr "Kategorititeln"
+
+#: desktoplite/desktoplite/templates/desktoplite/desktop.html:159
+#: desktoplite/desktoplite/templates/desktoplite/desktop.html:168
+#: desktoplite/desktoplite/templates/desktoplite/desktop.html:202
+msgid "Enter a title..."
+msgstr "Ange en titel..."
+
+#: desktoplite/desktoplite/templates/desktoplite/desktop.html:161
+#: desktoplite/desktoplite/templates/desktoplite/desktop.html:216
+#: desktoplite/desktoplite/templates/desktoplite/desktop.html:232
+msgid "Save"
+msgstr "Spara"
+
+#: desktoplite/desktoplite/templates/desktoplite/desktop.html:162
+#: desktoplite/desktoplite/templates/desktoplite/desktop.html:179
+#: desktoplite/desktoplite/templates/desktoplite/desktop.html:217
+#: desktoplite/desktoplite/templates/desktoplite/desktop.html:223
+#: desktoplite/desktoplite/templates/desktoplite/desktop.html:233
+#: desktoplite/desktoplite/templates/desktoplite/desktop.html:239
+msgid "Cancel"
+msgstr "Annullera"
+
+#: desktoplite/desktoplite/templates/desktoplite/desktop.html:167
+#: desktoplite/desktoplite/templates/desktoplite/desktop.html:201
+msgid "Card title"
+msgstr "Kort titel"
+
+#: desktoplite/desktoplite/templates/desktoplite/desktop.html:171
+#: desktoplite/desktoplite/templates/desktoplite/desktop.html:205
+msgid "Card URL"
+msgstr "Kort URL"
+
+#: desktoplite/desktoplite/templates/desktoplite/desktop.html:172
+#: desktoplite/desktoplite/templates/desktoplite/desktop.html:206
+msgid "Enter an URL..."
+msgstr "Ange URL..."
+
+#: desktoplite/desktoplite/templates/desktoplite/desktop.html:175
+#: desktoplite/desktoplite/templates/desktoplite/desktop.html:209
+msgid "Card thumbnail"
+msgstr "Kort bild"
+
+#: desktoplite/desktoplite/templates/desktoplite/desktop.html:178
+msgid "Create"
+msgstr "Skapa"
+
+#: desktoplite/desktoplite/templates/desktoplite/desktop.html:192
+msgid "Edit"
+msgstr "Redigera"
+
+#: desktoplite/desktoplite/templates/desktoplite/desktop.html:193
+#: desktoplite/desktoplite/templates/desktoplite/desktop.html:228
+msgid "Share"
+msgstr "Dela"
+
+#: desktoplite/desktoplite/templates/desktoplite/desktop.html:194
+msgid "Attach"
+msgstr "Ansluter till skrivbordet"
+
+#: desktoplite/desktoplite/templates/desktoplite/desktop.html:195
+msgid "Detach"
+msgstr "Bort från skrivbordet"
+
+#: desktoplite/desktoplite/templates/desktoplite/desktop.html:196
+#: desktoplite/desktoplite/templates/desktoplite/desktop.html:238
+msgid "Delete"
+msgstr "Radera"
+
+#: desktoplite/desktoplite/templates/desktoplite/desktop.html:214
+#: desktoplite/desktoplite/templates/desktoplite/desktop.html:222
+msgid "Remove thumbnail"
+msgstr "Radera bilden"
+
+#: desktoplite/desktoplite/templates/desktoplite/desktop.html:229
+msgid "Find groups"
+msgstr "Hitta grupper"
+
+#: desktoplite/desktoplite/templates/desktoplite/desktop.html:230
+msgid "Find users"
+msgstr "Hitta användare"
+
+#: desktoplite/desktoplite/templates/desktoplite/login_failed.html:5
+#: desktoplite/desktoplite/templates/desktoplite/login_failed.html:9
+msgid "Login failed"
+msgstr ""
+
+#: desktoplite/desktoplite/templates/desktoplite/login_failed.html:11
+msgid "Please try again tomorrow."
+msgstr ""
+
+#: desktoplite/desktoplite/templates/simplevideos/playlist.html:20
+msgid "Search from videos"
+msgstr "Sök från video"
+
+#: desktoplite/desktoplite/templates/simplevideos/playlist.html:21
+msgid "Search term..."
+msgstr "Sökterm..."
+
+#: haltu-utils/hutils/admin_list_filters.py:6
+msgid "user"
+msgstr "användare"
+
+#: simplevideos/simplevideos/views.py:83
+msgid "The video or playlist is not available"
+msgstr "Videon eller spellista är inte tillgänglig"
+
+#: simplevideos/simplevideos/views.py:94
+msgid "No video or playlist could be found"
+msgstr "Ingen video eller spellista kunde hittas"
+
+#: simplevideos/simplevideos/templates/simplevideos/create.html:8
+msgid "Enter a URL to a video or a playlist"
+msgstr "Ange en webbadress till en video eller en spellista"
+
+#: templates/404.html:9
+msgid "Page not found"
+msgstr "Sidan hittades inte"
+
+#: templates/404.html:11
+msgid "The requested page does not exist."
+msgstr "Den begärda sidan finns inte."
+
+#~ msgid "Exit the browser to end your session"
+#~ msgstr "Stäng webbläsare för att logga ut"
+
+#~ msgid ""
+#~ "By closing all browser windows and tabs you will log out of Airo and its "
+#~ "connected services."
+#~ msgstr ""
+#~ "Genom att stänga alla webbläsarfönster och flikar, loggas du ut från Airo "
+#~ "och alla relaterade tjänster."
+
+#~ msgid "Set language"
+#~ msgstr "Ange språk"

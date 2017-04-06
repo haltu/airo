@@ -1,0 +1,156 @@
+{% extends "dreamcards:dreamcards/desktop.html" %}
+{% load i18n %}
+
+{% block sidebar_buttons %}
+  <div class="sidebar-button logo"><div class="logo-container"></div></div>
+
+  <div class="sidebar-button" hammer-tap="activeDrawer = activeDrawer === 1 ? 0 : 1" ng-class="{active: activeDrawer === 1}"><i class="fa fa-th-large"></i></div>
+  <div class="sidebar-button" hammer-tap="activeDrawer = activeDrawer === 2 ? 0 : 2" ng-class="{active: activeDrawer === 2}"><i class="fa fa-bookmark"></i></div>
+  {% if perms.dreamdikaiosdreamcards.supervisor %}
+    <div class="sidebar-button" hammer-tap="activeDrawer = activeDrawer === 3 ? 0 : 3" ng-class="{active: activeDrawer === 3}"><div class="bg-icon" style="background-image: url({{ STATIC_URL }}dreamcards/img/edustore_icon_hover_airo.png)"></div></div>
+  {% endif %}
+  <div class="sidebar-button sidebar-button-profile" hammer-tap="activeDrawer = activeDrawer === 4 ? 0 : 4" ng-class="{active: activeDrawer === 4}"><i class="fa fa-user"></i></div>
+  <div class="sidebar-button" hammer-tap="activeDrawer = activeDrawer === 5 ? 0 : 5" ng-class="{active: activeDrawer === 5}"><i class="fa fa-power-off"></i></div>
+  <div class="main-sidebar-bottom">
+    <div class="sidebar-button bin">
+      <i class="fa icon-custom-trash-top"></i>
+      <i class="fa icon-custom-recycle-bottom"></i>
+    </div>
+  </div>
+{% endblock %}
+
+{% block sidebar_drawers %}
+
+   <div class="drawer scrollable ng-hide" ng-show="activeDrawer === 1" hm-drawer-page>
+      <div hm-drawer-heading>
+        <div class="drawer-search">
+          <input type="text" class="sidebar-search-field" ng-model="search.title" placeholder="{% trans "Search" %}...">
+          <i class="drawer-search-icon fa fa-search "></i>
+        </div>
+      </div>
+      <div hm-drawer-heading> {% trans 'System cards' %}</div>
+      <div hm-drawer-item hm-actions="attach" ng-repeat="card in systemCardsByCategory[null] | filter:{is_shared: false, title: search.title, card_type: '!edustorecard'}" ng-class="{selected: isCardInCurrentPage(card)}">-{ card.translated_title || card.title }-</div>
+      <div ng-repeat="category in systemCategories">
+        <div hm-drawer-heading>-{ category.title }-</div>
+        <div hm-drawer-item hm-actions="attach" ng-repeat="card in systemCardsByCategory[category.id] | filter:{title: search.title, card_type: '!edustorecard'}" ng-class="{selected: isCardInCurrentPage(card)}">-{ card.translated_title || card.title }-</div>
+      </div>
+      <div hm-drawer-heading ng-if="(systemCardsByCategory[null]|filter:{is_shared: true}).length > 0">{% trans 'Shared with me' %}</div>
+      <div hm-drawer-item hm-actions="attach" ng-repeat="card in systemCardsByCategory[null] | filter:{is_shared: true, title: search.title}" ng-class="{selected: isCardInCurrentPage(card)}">-{ card.translated_title || card.title }-</div>
+    </div>
+
+    <div class="drawer scrollable ng-hide" ng-show="activeDrawer === 2" hm-drawer-page>
+      <div hm-drawer-heading>
+        <div class="drawer-search">
+          <input type="text" class="sidebar-search-field" ng-model="search.title" placeholder="{% trans "Search" %}...">
+          <i class="drawer-search-icon fa fa-search "></i>
+        </div>
+      </div>
+      <div hm-drawer-heading hm-actions="create">{% trans 'My cards' %}</div>
+      <div hm-drawer-item hm-actions="edit {% if perms.dreamcards.can_share_cards %}share{% endif %} delete attach" ng-repeat="card in userCardsByCategory[null] | filter:{title: search.title, card_type: '!edustorecard'}" ng-class="{selected: isCardInCurrentPage(card)}">-{ card.translated_title || card.title }-</div>
+      <div ng-repeat="category in userCategories">
+        <div hm-drawer-heading hm-actions="create edit">-{ category.title }-</div>
+        <div hm-drawer-item hm-actions="edit {% if perms.dreamcards.can_share_cards %}share{% endif %} delete attach" ng-repeat="card in userCardsByCategory[category.id] | filter:{title: search.title, card_type: '!edustorecard'}" ng-class="{selected: isCardInCurrentPage(card)}">-{ card.translated_title || card.title }-</div>
+      </div>
+    </div>
+
+    <div class="drawer scrollable ng-hide" ng-show="activeDrawer === 3" hm-drawer-page>
+      <div hm-drawer-heading>
+        <div class="drawer-search">
+          <input type="text" class="sidebar-search-field" ng-model="search.title" placeholder="{% trans "Search" %}...">
+          <i class="drawer-search-icon fa fa-search "></i>
+        </div>
+      </div>
+      <div hm-drawer-heading hm-actions="create_from_edustore"> {% trans 'Edustore cards' %}</div>
+      <div hm-drawer-item hm-actions="{% if perms.dreamcards.can_share_cards %}share{% endif %} delete attach" ng-repeat="card in cards | filter:{card_type: 'edustorecard', title: search.title}" ng-class="{selected: isCardInCurrentPage(card)}">-{ card.translated_title || card.title }-</div>
+    </div>
+
+    <div class="drawer scrollable ng-hide" ng-show="activeDrawer === 4" hm-drawer-page>
+      <div class="drawer-heading"> {{ user.first_name }} {{ user.last_name }} </div>
+      <div class="inline-drawer">
+        <form class="inline-drawer-form language-select-form" action="{% url dreamcards.set_language %}" method="post">
+          {% csrf_token %}
+          <div class="inline-drawer-title"> {% trans 'Select language' %} </div>
+          <input name="next" type="hidden" value="/" />
+          {% get_language_info_list for LANGUAGES as languages %}
+          {% for language in languages %}
+            <input type="radio" name="language" id="language-select-radio-{{ forloop.counter }}" {% if language.code == LANGUAGE_CODE %}checked {% endif %}value="{{ language.code }}" onchange="this.form.submit()"></input>
+            <label class="control-label" for="language-select-radio-{{ forloop.counter }}"> {{ language.name_local }} ({{ language.code }})</label><br>
+          {% endfor %}
+        </form>
+      </div>
+      <div class="inline-drawer">
+        <div class="inline-drawer-grid clearfix"> {# clearfix contains the floated elements inside this block #}
+          <div class="inline-drawer-grid-title"> {% trans 'Choose desktop background' %}</div>
+
+            {% block background_choices %}
+              <div class="inline-drawer-grid-cell">
+                <div class="bg-select-grid-button background-choice-1-btn" hm-background-selector hammer-tap="setBackground(1)"></div>
+              </div>
+              <div class="inline-drawer-grid-cell">
+                <div class="bg-select-grid-button background-choice-2-btn" hm-background-selector hammer-tap="setBackground(2)"></div>
+              </div>
+              <div class="inline-drawer-grid-cell">
+                <div class="bg-select-grid-button background-choice-3-btn" hm-background-selector hammer-tap="setBackground(3)"></div>
+              </div>
+              <div class="inline-drawer-grid-cell">
+                <div class="bg-select-grid-button background-choice-4-btn" hm-background-selector hammer-tap="setBackground(4)"></div>
+              </div>
+              <div class="inline-drawer-grid-cell">
+                <div class="bg-select-grid-button background-choice-5-btn" hm-background-selector hammer-tap="setBackground(5)"></div>
+              </div>
+              <div class="inline-drawer-grid-cell">
+                <div class="bg-select-grid-button background-choice-6-btn" hm-background-selector hammer-tap="setBackground(6)"></div>
+              </div>
+              <div class="inline-drawer-grid-cell">
+                <div class="bg-select-grid-button background-choice-7-btn" hm-background-selector hammer-tap="setBackground(7)"></div>
+              </div>
+              <div class="inline-drawer-grid-cell">
+                <div class="bg-select-grid-button background-choice-8-btn" hm-background-selector hammer-tap="setBackground(8)"></div>
+              </div>
+              <div class="inline-drawer-grid-cell">
+                <div class="bg-select-grid-button background-choice-9-btn" hm-background-selector hammer-tap="setBackground(9)"></div>
+              </div>
+              <div class="inline-drawer-grid-cell">
+                <div class="bg-select-grid-button background-choice-10-btn" hm-background-selector hammer-tap="setBackground(10)"></div>
+              </div>
+              <div class="inline-drawer-grid-cell">
+                <div class="bg-select-grid-button background-choice-11-btn" hm-background-selector hammer-tap="setBackground(11)"></div>
+              </div>
+              <div class="inline-drawer-grid-cell">
+                <div class="bg-select-grid-button background-choice-12-btn" hm-background-selector hammer-tap="setBackground(12)"></div>
+              </div>
+              <div class="inline-drawer-grid-cell">
+                <div class="bg-select-grid-button background-choice-13-btn" hm-background-selector hammer-tap="setBackground(13)"></div>
+              </div>
+              <div class="inline-drawer-grid-cell">
+                <div class="bg-select-grid-button background-choice-14-btn" hm-background-selector hammer-tap="setBackground(14)"></div>
+              </div>
+            {% endblock %}
+        </div>
+      </div>
+    </div>
+
+    <div class="drawer scrollable ng-hide" ng-show="activeDrawer === 5" hm-drawer-page>
+      <div class="drawer-heading">{% trans 'Log out' %} </div>
+      <div class="inline-drawer">
+        <div class="inline-drawer-form">
+          {% comment %}
+            <div class="inline-drawer-title bottom-spacer">{% trans 'Exit the browser to end your session' %}</div>
+            <div style="font-size: 85%;">{% trans '#logout-description' %}</div>
+          {% endcomment %}
+          <div class="inline-drawer-title bottom-spacer">{% trans 'Are you sure?' %}</div>
+          <a class="btn btn-default" href="{% url logout %}"> {% trans 'Yes' %}</a>
+          <a class="btn btn-primary" hammer-tap="activeDrawer = 0">{% trans 'No' %}</a>
+        </div>
+      </div>
+    </div>
+
+{% endblock %}
+
+{% block hm_drawer_heading_actions %}
+<div ng-if="isActiveInlineDrawerView('actions')">
+  <div class="inline-drawer-action" hammer-tap="changeInlineDrawerView('edit-form')" ng-if="actions.edit"><i class="fa fa-pencil"></i>{% trans 'Edit Category' %}</div>
+  <div class="inline-drawer-action" hammer-tap="changeInlineDrawerView('create-form')" ng-if="actions.create"><span class="icon-btn"><i class="fa fa-plus"></i></span>{% trans 'Add card' %}</div>
+  <a href="{% url dreamdikaios.browse_repository 'card' %}" class="inline-drawer-action" ng-if="actions.create_from_edustore"><span class="icon-btn"><i class="fa fa-plus"></i></span>{% trans 'Edustore' %}</a>
+</div>
+{% endblock %}

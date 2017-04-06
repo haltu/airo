@@ -1,0 +1,12 @@
+{% extends "dreamcards/base.html" %}
+{% load i18n %}
+
+{% block meta_title %}{% trans "Login" %} | {{ block.super }}{% endblock %}
+
+{% block body %}
+  <div class="not-found-container">
+    <h1 class="heading">{% trans 'Login failed' %}</h1>
+
+    <p><{% trans "Login" %}/p>
+  </div>
+{% endblock %}

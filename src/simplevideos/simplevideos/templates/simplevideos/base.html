@@ -1,0 +1,15 @@
+{% load i18n %}
+<!doctype html>
+<html {% block html_attrs %}{% endblock %}>
+  <head>
+    <meta charset="utf-8">
+    <title>{% block meta_title %}{% trans "#service-name" %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ STATIC_URL }}simplevideos/css/bootstrap-custom-3.3.4.min.css">
+    <link rel="stylesheet" href="{{ STATIC_URL }}simplevideos/css/style.css">
+    {% block after_head %}{% endblock %}
+  </head>
+  <body>
+    {% block content %}{% endblock %}
+    {% block after_body %}{% endblock %}
+  </body>
+</html>

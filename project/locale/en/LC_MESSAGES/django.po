@@ -1,0 +1,180 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-07-03 16:34+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: desktoplite/desktoplite/admin.py:13
+msgid "System Provided"
+msgstr ""
+
+#: desktoplite/desktoplite/admin.py:18
+msgid "True"
+msgstr ""
+
+#: desktoplite/desktoplite/admin.py:19
+msgid "False"
+msgstr ""
+
+#: desktoplite/desktoplite/models.py:17 desktoplite/desktoplite/models.py:66
+#: desktoplite/desktoplite/models.py:110
+msgid "Title"
+msgstr ""
+
+#: desktoplite/desktoplite/models.py:18
+msgid "URL"
+msgstr ""
+
+#: desktoplite/desktoplite/models.py:22 desktoplite/desktoplite/models.py:67
+#: desktoplite/desktoplite/models.py:111
+msgid "Owner"
+msgstr ""
+
+#: desktoplite/desktoplite/models.py:25
+msgid "Card type"
+msgstr ""
+
+#: desktoplite/desktoplite/models.py:90
+msgid "Card"
+msgstr ""
+
+#: desktoplite/desktoplite/models.py:91
+msgid "Page"
+msgstr ""
+
+#: desktoplite/desktoplite/models.py:93
+msgid "Size X"
+msgstr ""
+
+#: desktoplite/desktoplite/models.py:94
+msgid "Size Y"
+msgstr ""
+
+#: desktoplite/desktoplite/models.py:95
+msgid "Order"
+msgstr ""
+
+#: desktoplite/desktoplite/models.py:130
+msgid "Start page"
+msgstr ""
+
+#: desktoplite/desktoplite/templates/base.html:17
+msgid "#service-name"
+msgstr "Airo"
+
+#: desktoplite/desktoplite/templates/desktoplite/desktop.html:4
+msgid "Desktop"
+msgstr ""
+
+#: desktoplite/desktoplite/templates/desktoplite/desktop.html:33
+msgid "Select language"
+msgstr ""
+
+#: desktoplite/desktoplite/templates/desktoplite/desktop.html:41
+msgid "Set language"
+msgstr ""
+
+#: desktoplite/desktoplite/templates/desktoplite/desktop.html:47
+msgid "System cards"
+msgstr "Airo cards"
+
+#: desktoplite/desktoplite/templates/desktoplite/desktop.html:56
+msgid "My cards"
+msgstr ""
+
+#: desktoplite/desktoplite/templates/desktoplite/desktop.html:87
+msgid "Edit Category"
+msgstr ""
+
+#: desktoplite/desktoplite/templates/desktoplite/desktop.html:88
+msgid "Add card"
+msgstr ""
+
+#: desktoplite/desktoplite/templates/desktoplite/desktop.html:92
+msgid "Category title"
+msgstr ""
+
+#: desktoplite/desktoplite/templates/desktoplite/desktop.html:93
+#: desktoplite/desktoplite/templates/desktoplite/desktop.html:101
+#: desktoplite/desktoplite/templates/desktoplite/desktop.html:127
+msgid "Enter a title..."
+msgstr ""
+
+#: desktoplite/desktoplite/templates/desktoplite/desktop.html:95
+#: desktoplite/desktoplite/templates/desktoplite/desktop.html:133
+msgid "Save"
+msgstr ""
+
+#: desktoplite/desktoplite/templates/desktoplite/desktop.html:96
+#: desktoplite/desktoplite/templates/desktoplite/desktop.html:108
+#: desktoplite/desktoplite/templates/desktoplite/desktop.html:134
+#: desktoplite/desktoplite/templates/desktoplite/desktop.html:139
+msgid "Cancel"
+msgstr ""
+
+#: desktoplite/desktoplite/templates/desktoplite/desktop.html:100
+#: desktoplite/desktoplite/templates/desktoplite/desktop.html:126
+msgid "Card title"
+msgstr ""
+
+#: desktoplite/desktoplite/templates/desktoplite/desktop.html:104
+#: desktoplite/desktoplite/templates/desktoplite/desktop.html:130
+msgid "Card URL"
+msgstr "Card's web address"
+
+#: desktoplite/desktoplite/templates/desktoplite/desktop.html:105
+#: desktoplite/desktoplite/templates/desktoplite/desktop.html:131
+msgid "Enter an URL..."
+msgstr ""
+
+#: desktoplite/desktoplite/templates/desktoplite/desktop.html:143
+#: desktoplite/desktoplite/templates/desktoplite/desktop.html:173
+msgid "Card thumbnail"
+msgstr ""
+
+#: desktoplite/desktoplite/templates/desktoplite/desktop.html:107
+msgid "Create"
+msgstr ""
+
+#: desktoplite/desktoplite/templates/desktoplite/desktop.html:119
+msgid "Edit"
+msgstr ""
+
+#: desktoplite/desktoplite/templates/desktoplite/desktop.html:120
+msgid "Attach"
+msgstr "Add to desk"
+
+#: desktoplite/desktoplite/templates/desktoplite/desktop.html:121
+msgid "Detach"
+msgstr "Remove from desk"
+
+#: desktoplite/desktoplite/templates/desktoplite/desktop.html:122
+#: desktoplite/desktoplite/templates/desktoplite/desktop.html:138
+msgid "Delete"
+msgstr ""
+
+#: desktoplite/desktoplite/templates/desktoplite/desktop.html:175
+#: desktoplite/desktoplite/templates/desktoplite/desktop.html:182
+msgid "Remove thumbnail"
+msgstr ""
+
+#: desktoplite/desktoplite/templates/desktoplite/desktop.html:137
+msgid "Are you sure?"
+msgstr ""
+
+#: haltu-utils/hutils/admin_list_filters.py:6
+msgid "user"
+msgstr ""

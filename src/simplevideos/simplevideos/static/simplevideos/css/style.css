@@ -1,0 +1,111 @@
+
+/* Bootstrap overrides */
+
+.col-xs-5ths,
+.col-sm-5ths,
+.col-md-5ths,
+.col-lg-5ths {
+  position: relative;
+  min-height: 1px;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.col-xs-5ths {
+  width: 20%;
+  float: left;
+}
+@media (min-width: 768px) {
+  .col-sm-5ths {
+    width: 20%;
+    float: left;
+  }
+}
+@media (min-width: 992px) {
+  .col-md-5ths {
+    width: 20%;
+    float: left;
+  }
+}
+@media (min-width: 1200px) {
+  .col-lg-5ths {
+    width: 20%;
+    float: left;
+  }
+}
+
+/* Create view */
+
+.create-form {
+  position: absolute;
+  top: 30%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0 auto;
+  height: 60px;
+  text-align: center;
+}
+.create-form-input {
+  width: 70%;
+  max-width: 400px;
+  height: 100%;
+}
+.create-form-button {
+  width: 20%;
+  height: 100%;
+  max-width: 30px;
+}
+.create-form-error {
+  color: red;
+}
+
+/* Playlist view */
+
+.video-thumbnail {
+  padding-top: 10px;
+  margin-bottom: 15px;
+  height: 270px;
+  overflow: hidden;
+}
+.video-thumbnail-image-link {
+  position: relative;
+}
+.video-thumbnail-image.video-thumbnail-image {
+  border: 5px solid #ddd;
+  background: #ddd;
+  width: 100%;
+}
+.video-thumbnail-image.noscript {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.video-thumbnail-title {
+  max-height: 59px;
+  overflow: hidden;
+}
+.video-thumbnail-description {
+  font-size: 12px;
+  max-height: 50px;
+  overflow: hidden;
+}
+
+/* Video view */
+
+.video-details {
+  margin: 25px 0 50px 0;
+}
+.video-embed.video-embed {
+  outline: 5px solid #ddd;
+  background: #ddd;
+}
+.video-details-title {
+  margin: 30px auto;
+  max-width: 640px;
+}
+.video-details-description {
+  white-space: pre-line;
+  word-break: break-word;
+  margin: 0 auto;
+  max-width: 640px;
+}

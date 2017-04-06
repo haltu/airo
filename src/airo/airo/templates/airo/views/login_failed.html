@@ -1,0 +1,13 @@
+{% extends "dreamcards/base.html" %}
+{% load i18n %}
+{% load url from future %}
+
+{% block meta_title %}{% trans 'Login failed' %}{% endblock %}
+
+{% block body %} 
+  <div class="not-found-container"> 
+    <h1 class="heading">{% trans 'Login failed' %}</h1>
+     
+    <p>{% trans 'Please try again tomorrow.' %}</p>
+  </div>
+{% endblock %}

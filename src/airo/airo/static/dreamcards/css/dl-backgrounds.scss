@@ -1,0 +1,171 @@
+
+html, body {
+  background: transparent;
+}
+html {
+  // default if no user-selected bg
+  background: #00cbeb;
+  background: #00cbeb url(/static/dreamcards/img/hml_desktop-bg.jpg) bottom right no-repeat fixed;
+}
+body:before,
+body:after {
+  content: "";
+  position: fixed;
+  width: auto;
+  height: auto;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+/* bg-1 */
+.background-choice-1 {
+  background: #00cbeb;
+  background: #00cbeb url(/static/dreamcards/img/hml_desktop-bg.jpg) bottom right no-repeat fixed;
+  &-btn {
+    background: #00cbeb url(/static/dreamcards/img/hml_desktop-bg-small.jpg) center no-repeat;
+  }
+}
+.background-choice-1 body:after {
+  bottom: 0;
+  right: 1128px;
+  background: url(/static/dreamcards/img/hml_desktop-k4-repeat.jpg) bottom right repeat-x; 
+}
+
+/* bg-2 */
+.background-choice-2 {
+  background: #4fcae9;
+  background: #4fcae9 url(/static/dreamcards/img/hml_desktop-k5.jpg) bottom left no-repeat fixed;
+  &-btn {
+    background: #4fcae9 url(/static/dreamcards/img/hml_desktop-k5-small.jpg) center no-repeat;
+  }
+}
+.background-choice-2 body:after {
+  bottom: 0;
+  right: 0;
+  left: 1660px;
+  background: url(/static/dreamcards/img/hml_desktop-k5-repeat.jpg) bottom left repeat-x; 
+}
+
+/* bg-3 */
+.background-choice-3 {
+  background: #01172c;
+  background: #01172c url(/static/dreamcards/img/hml_desktop-t1.jpg) bottom left no-repeat fixed;
+  &-btn {
+    background: #01172c url(/static/dreamcards/img/hml_desktop-t1-small.jpg) no-repeat center;
+  }
+}
+.background-choice-3 body:after {
+  bottom: 0;
+  right: 0;
+  left: 1744px;
+  background: url(/static/dreamcards/img/hml_desktop-t1-repeat.jpg) bottom left repeat-x; 
+}
+.background-choice-3 body:before {
+  bottom: 1081px;
+  right: 0;
+  background: url(/static/dreamcards/img/hml_desktop-t1-repeat-y.jpg) bottom left repeat;
+}
+
+/* bg-4 */
+.background-choice-4 {
+  background: #0165bb;
+  background: #0165bb url(/static/dreamcards/img/hml_desktop-t2.jpg) bottom left no-repeat fixed;
+  &-btn {
+    background: #0165bb url(/static/dreamcards/img/hml_desktop-t2-small.jpg) no-repeat center;
+  }
+}
+.background-choice-4 body:after {
+  bottom: 0;
+  right: 0;
+  left: 1835px;
+  background: url(/static/dreamcards/img/hml_desktop-t2-repeat.jpg) bottom left repeat-x; 
+}
+.background-choice-4 body:before {
+  bottom: 1081px;
+  right: 0;
+  background: url(/static/dreamcards/img/hml_desktop-t2-repeat-y.jpg) bottom left repeat;
+}
+
+/* bg-5 */
+.background-choice-5 {
+  background: #f5f4f2;
+  background: url(/static/dreamcards/img/AIRO-logo.png) 98% 98% / 33% auto no-repeat fixed, #f5f4f2 url(/static/dreamcards/img/bg-pattern.jpg);
+  &-btn {
+    background: #f5f4f2 url(/static/dreamcards/img/AIRO-logo-small.png) no-repeat center;
+  }
+}
+
+/* bg-6 */
+.background-choice-6 {
+  background: #f5f4f2;
+  background: url(/static/dreamcards/img/AIRO-logo-dark.png) 98% 98% / 33% auto no-repeat fixed, #f5f4f2 url(/static/dreamcards/img/bg-pattern.jpg);
+  &-btn {
+    background: #f5f4f2 url(/static/dreamcards/img/AIRO-logo-dark-small.png) no-repeat center;
+  }
+}
+
+/* bg-7 */
+.background-choice-7 {
+  background: url(/static/dreamcards/img/bg-vuokot.jpg) center / cover no-repeat fixed
+  &-btn {
+    background: url(/static/dreamcards/img/bg-vuokot-small.jpg) no-repeat center;
+  }
+}
+
+/* bg-8 */
+.background-choice-8 {
+  background: url(/static/dreamcards/img/bg-sibelius.jpg) bottom right / cover no-repeat fixed
+  &-btn {
+    background: url(/static/dreamcards/img/bg-sibelius-small.jpg) no-repeat center;
+  }
+}
+
+/* bg-9 */
+.background-choice-9 {
+  background: url(/static/dreamcards/img/bg-siili.jpg) center / cover no-repeat fixed
+  &-btn {
+    background: url(/static/dreamcards/img/bg-siili-small.jpg) no-repeat center;
+  }
+}
+
+/* bg-10 */
+.background-choice-10 {
+  background: url(/static/dreamcards/img/bg-ilves.jpg) bottom right / cover no-repeat fixed
+  &-btn {
+    background: url(/static/dreamcards/img/bg-ilves-small.jpg) no-repeat center;
+  }
+}
+
+/* bg-11 */
+.background-choice-11 {
+  background: url(/static/dreamcards/img/bg-kivet.jpg) bottom right / cover no-repeat fixed
+  &-btn {
+    background: url(/static/dreamcards/img/bg-kivet-small.jpg) no-repeat center;
+  }
+}
+
+/* bg-12 */
+.background-choice-12 {
+  background: url(/static/dreamcards/img/bg-ilveskallio.jpg) center / cover no-repeat fixed
+  &-btn {
+    background: url(/static/dreamcards/img/bg-ilveskallio-small.jpg) no-repeat center;
+  }
+}
+
+/* bg-13 */
+.background-choice-13 {
+  background: url(/static/dreamcards/img/bg-linna-yo.jpg) center / cover no-repeat fixed
+  &-btn {
+    background: url(/static/dreamcards/img/bg-linna-yo-small.jpg) no-repeat center;
+  }
+}
+
+/* bg-14 */
+.background-choice-14 {
+  background: url(/static/dreamcards/img/bg-linna-paiva.jpg) center / cover no-repeat fixed
+  &-btn {
+    background: url(/static/dreamcards/img/bg-linna-paiva-small.jpg) no-repeat center;
+  }
+}
+

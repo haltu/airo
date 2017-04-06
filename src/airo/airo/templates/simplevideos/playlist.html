@@ -1,0 +1,197 @@
+{% extends "simplevideos:simplevideos/playlist.html" %}
+{% load i18n dateutil_tags humanize %}
+
+{% block content %}
+
+  <div class="container main">
+
+    <div class="row">
+      <div class="col-lg-12">
+        <h1 class="page-header">
+          {{ playlist.snippet.title }}
+          <small>{{ playlist.snippet.description }}</small>
+        </h1>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="video-search">
+          <label class="video-search-label" for="video-search-field"><i class="fa fa-search"></i>{% trans "Search from videos" %}</label>
+          <input class="video-search-field" id="video-search-field" type="text" placeholder="{% trans 'Search term...' %}" />
+        </div>
+      </div>
+    </div>
+
+    <div class="row video-list">
+    {% for video in videos|dictsortreversed:"snippet.publishedAt" %}
+      <div class="col-lg-5ths col-md-3 col-sm-4 col-xs-6 video-thumbnail" id="video-{{ video.snippet.resourceId.videoId }}">
+        <a href="{% url simplevideos.video playlist.id video.snippet.resourceId.videoId %}" class="video-thumbnail-image-link embed-responsive embed-responsive-16by9 text-center">
+          <img class="video-thumbnail-image lazy embed-responsive-item"{% if forloop.counter0 < 16 %} src="{{ video.snippet.thumbnails.medium.url }}"{% else %} data-src="{{ video.snippet.thumbnails.medium.url }}"{% endif %} alt="{{ video.snippet.title }}" width="{{ video.snippet.thumbnails.medium.width }}" height="{{ video.snippet.thumbnails.medium.height }}" />
+          <noscript>
+            <img class="video-thumbnail-image embed-responsive-item" src="{{ video.snippet.thumbnails.medium.url }}" alt="{{ video.snippet.title }}" width="{{ video.snippet.thumbnails.medium.width }}" height="{{ video.snippet.thumbnails.medium.height }}" />
+          </noscript>
+        </a>
+        <h4 class="video-thumbnail-title">
+          <a href="{% url simplevideos.video playlist.id video.snippet.resourceId.videoId %}" title="{{ video.snippet.title }}">{{ video.snippet.title }}</a>
+        </h4>
+        <p class="video-details-meta" title="{{ video.snippet.publishedAt|parse_date|date:'Y-m-d H:i:s' }}">{{ video.snippet.publishedAt|parse_date|naturaltime }}</p>
+        <p class="video-thumbnail-description" title="{{ video.snippet.description }}">{{ video.snippet.description }}</p>
+      </div>
+    {% endfor %}
+    </div>
+
+  </div>
+
+{% endblock %}
+
+
+{% block after_body %}
+    {{ block.super }}
+    <script src="{{ STATIC_URL }}dreamcards/js/vendor/jquery-1.11.1.min.js"></script>
+    <script src="{{ STATIC_URL }}dreamcards/js/vendor/jquery.ba-throttle-debounce-1.1.min.js"></script>
+    <script>
+      // String Scoring Algorithm 0.1.22 | (c) 2009-2015 Joshaven Potter <yourtech@gmail.com>
+      // MIT License: http://opensource.org/licenses/MIT | https://github.com/joshaven/string_score
+      String.prototype.score=function(e,f){if(this===e)return 1;if(""===e)return 0;var d=0,a,g=this.toLowerCase(),n=this.length,h=e.toLowerCase(),k=e.length,b;a=0;var l=1,m,c;f&&(m=1-f);if(f)for(c=0;c<k;c+=1)b=g.indexOf(h[c],a),-1===b?l+=m:(a===b?a=.7:(a=.1," "===this[b-1]&&(a+=.8)),this[b]===e[c]&&(a+=.1),d+=a,a=b+1);else for(c=0;c<k;c+=1){b=g.indexOf(h[c],a);if(-1===b)return 0;a===b?a=.7:(a=.1," "===this[b-1]&&(a+=.8));this[b]===e[c]&&(a+=.1);d+=a;a=b+1}d=.5*(d/n+d/k)/l;h[0]===g[0]&&.85>d&&(d+=.15);return d};
+
+      (function () {
+
+        var
+        videos = [
+          {% for video in videos|dictsortreversed:"snippet.publishedAt" %}
+            {
+              title: '{{ video.snippet.title|escapejs }}',
+              description: '{{ video.snippet.description|escapejs }}',
+              cleanedTitle: '{{ video.snippet.title|escapejs }}'.replace(/[^a-z0-9 ]/gi, ''),
+              cleanedDescription: '{{ video.snippet.description|escapejs }}'.replace(/[^a-z0-9 ]/gi, ''),
+              element: document.getElementById('video-{{ video.snippet.resourceId.videoId|escapejs }}'),
+              resultElement: document.getElementById('video-result-{{ video.snippet.resourceId.videoId|escapejs }}')
+            }
+          {% if not forloop.last %},{% endif %}
+          {% endfor %}
+        ],
+        videoScores = [];
+
+        $(function () {
+
+          // Sort videos by score when search input changes
+          var
+          $searchInput = $('.video-search-field');
+
+          $searchInput.on('keyup change', $.debounce(400, function handleChange() {
+
+            var
+            videoParentNode,
+            len,
+            i;
+
+            videoScores = getVideoScores(this.value);
+
+            // Here we re-insert each element in order starting from
+            // the second-to-last one, using the last one as an anchor
+            videoParentNode = videos[0].element.parentNode;
+            len = videoScores.length;
+            for (i = len - 1; i >= 0; i--) {
+              if (videoScores[i + 1]) {
+                videoParentNode.insertBefore(videoScores[i].video.element, videoScores[i + 1].video.element);
+              }
+              // Fade fuzzier results
+              if (this.value) {
+                videoScores[i].video.element.style.opacity = Math.max(Math.min(videoScores[i].score + .4, 1), .2);
+              }
+              else {
+                videoScores[i].video.element.style.opacity = '1';
+              }
+            }
+
+            // Must update lazy image loader, so that images in matches are loaded
+            layzr.update();
+
+          }));
+
+        });
+
+        function getVideoScores(query) {
+
+          var
+          len = videos.length,
+          videoScores = [],
+          video,
+          i;
+
+          for (i = 0; i < len; i++) {
+            video = videos[i];
+            videoScores.push({
+              video: video,
+              score: scoreVideo(video, query)
+            });
+          }
+
+          videoScores.sort(sortByScore);
+
+          return videoScores;
+
+        }
+
+        function scoreVideo(video, query) {
+
+          var
+          query = query.trim(),
+          cleanedQuery = query.replace(/[^a-z0-9 ]/gi, ''),
+          fullMatchRegex = new RegExp('\\b' + cleanedQuery + '\\b', 'i'),
+          startsWithRegex = new RegExp('\\b' + cleanedQuery, 'i'),
+          score = 0,
+          parts,
+          len,
+          i;
+
+          if ( ! query) {
+            return 0;
+          }
+
+          // Score words separately, return average
+          if (query.indexOf(' ') != -1) {
+            parts = query.split(' ');
+            len = parts.length;
+            for (i = 0; i < len; i++) {
+              if (parts[i]) {
+                score = (score + scoreVideo(video, parts[i])) / 2;
+              }
+            }
+            return score;
+          }
+
+          // Main score by string scoring algorithm
+          score = video.title.score(query);
+          // Give less weight to description
+          score += video.description.score(query) / 10;
+
+          // Scoring algorithm doesn't always produce sensible results,
+          // so we promote results that have full word matches or words starting with query
+          if (fullMatchRegex.test(video.cleanedTitle)) {
+            score += 4;
+          }
+          else if (startsWithRegex.test(video.cleanedTitle)) {
+            score += 3;
+          }
+          else if (fullMatchRegex.test(video.cleanedDescription)) {
+            score += 2;
+          }
+          else if (startsWithRegex.test(video.cleanedDescription)) {
+            score += 1;
+          }
+
+          return score;
+
+        }
+
+        function sortByScore(a, b) {
+
+          return b.score - a.score;
+
+        }
+
+      })();
+    </script>
+{% endblock %}

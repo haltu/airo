@@ -1,0 +1,9 @@
+{% extends "dreamcards/card_template.html" %}
+{% block card_content %}
+  <a href="#" target="_blank" ng-href="-{ card.url }-" class="card-link" ng-if="card.url"></a>
+  <div class="card-link" ng-if=" ! card.url"></div>
+  <div class="card-edustore-image-container">
+    <img class="card-edustore-image" ng-src="-{ card.readonly_thumbnail || context.default_thumbnail }-" draggable="false" ondragstart="return false;" />
+  </div>
+  <div class="card-title">-{ card.translated_title || card.title }-</div>
+{% endblock %}

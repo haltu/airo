@@ -1,0 +1,64 @@
+/* Main */
+
+// sidebar
+$sb-logo-image: url(/static/dreamcards/img/AIRO-logo-small-vertical.png);
+$sb-main-logo-margin: 12px 0 10px;
+$sb-main-background: #fff;
+$sb-main-button-color: #eb9242;
+$sb-main-button-hover-color: #1599ae;
+$sb-main-button-bin-background: #fff;
+$sb-main-button-hover-background: #fff;
+$sb-drawer-color: #fff;
+$sb-drawer-background: #0f92aa;
+$sb-drawer-item-selected-background: #1C8A9E;
+$sb-drawer-item-button-color: #d8edee;
+$sb-drawer-heading-background: #0f92aa;
+$sb-drawer-heading-border-bottom: 0;
+$sb-drawer-heading-height: 60px;
+$sb-inline-drawer-background-color: #5cb1c6;
+$sb-inline-drawer-border-bottom: 1px solid #06aed5;
+$sb-inline-drawer-before-border-top: 1px solid #06aed5;
+$sb-inline-drawer-form-field-border: 0;
+$sb-inline-drawer-form-field-background: #e8e8e8;
+$sb-inline-drawer-form-field-color: #0f92aa;
+$sb-inline-drawer-form-field-focus-background: #fff;
+$sb-inline-drawer-form-field-has-error-background: #eed3d3;
+$sb-inline-drawer-form-field-has-error-focus-background: #eed3d3;
+
+// buttons
+$btn-primary-color: white;
+$btn-primary-background-color: #95be17;
+$btn-default-color: white;
+$btn-default-background-color: #1d637c;
+
+// card grid
+$main-content-grid-sizer-width: 190px;
+$main-content-grid-sizer-height: 190px;
+$main-content-card-width: 190px;
+$main-content-card-height: 190px;
+$main-content-card-background: #ffffff;
+$main-content-card-border-color: #cfe3e4;
+$main-content-card-title-color: #f18516;
+$main-content-card-title-color-hover: $main-content-card-title-color;
+$main-content-card-title-background-color: transparent;
+$main-content-card-title-background-color-hover: transparent;
+$main-content-card-background-image: /static/dreamcards/img/frame2_blank.png;
+$main-content-card-background: transparent url($main-content-card-background-image) center center;
+$main-content-card-counter-background: #ce4848;
+$main-content-card-counter-color: #ffffff;
+$main-content-card-icon-width: 152px;
+$main-content-card-icon-height: 125px;
+
+$main-content-card-grey-color: #9e9e9e;
+$main-content-card-blue-color: #2196f3;
+$main-content-card-red-color: #f44336;
+$main-content-card-green-color: #4caf50;
+$main-content-card-orange-color: #ff9800;
+$main-content-card-pink-color: #e91e63;
+$main-content-card-purple-color: #9c27b0;
+
+// error popup
+$alert-danger-color: #a94442;
+$alert-danger-background-color: #f2dede;
+$alert-danger-border-color: #ebccd1;
+

@@ -1,0 +1,292 @@
+/* Visual Style */
+
+@import 'dreamcards/css/dl-backgrounds';
+
+// Set custom font to input fields also.
+input,
+textarea,
+button {
+  font-family: Montserrat, sans-serif;
+}
+
+.drawer {
+  color: $sb-drawer-color;
+  background: $sb-drawer-background;
+  font-weight: normal;
+  font-size: 16px;
+}
+.main-sidebar {
+  background: $sb-main-background;
+}
+.main-sidebar .sidebar-button {
+  color: $sb-main-button-color;
+}
+.main-sidebar .sidebar-button.logo {
+  margin: $sb-main-logo-margin;
+}
+.main-sidebar .sidebar-button.logo .logo-container {
+  background: $sb-logo-image center no-repeat ;
+  width: 100%;
+  height: 100%;
+}
+.main-sidebar .sidebar-button:hover,
+.main-sidebar .sidebar-button.active {
+  color: $sb-main-button-hover-color;
+  background: $sb-main-button-hover-background;
+}
+.main-sidebar .sidebar-button > a {
+  color: inherit;
+}
+.main-sidebar .sidebar-button.bin:after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 22%;
+  width: 36%;
+  height: 36%;
+  margin-left: -18%;
+  background: $sb-main-button-bin-background;
+  z-index: -1;
+}
+[hm-drawer-item].selected {
+  background: $sb-drawer-item-selected-background;
+}
+[hm-drawer-heading] {
+  background: $sb-drawer-heading-background;
+  border-bottom: $sb-drawer-heading-border-bottom;
+}
+[hm-drawer-heading] .drawer-item-button,
+.drawer-item-button.heading-button {
+  height: $sb-drawer-heading-height;
+  line-height: $sb-drawer-heading-height;
+}
+.drawer-heading {
+  height: $sb-drawer-heading-height;
+  line-height: $sb-drawer-heading-height;
+  text-transform: uppercase;
+}
+.drawer-item-button {
+  color: $sb-drawer-item-button-color;
+  font-size: 16px;
+}
+.drawer-item.shared:before {
+  color: $sb-drawer-item-button-color;
+}
+.sidebar-search-field {
+  background: $sb-drawer-heading-background;
+  color: $sb-inline-drawer-form-field-color;
+}
+.drawer-search-icon {
+  color: $sb-drawer-item-button-color;
+}
+.inline-drawer {
+  background-color: $sb-inline-drawer-background-color;
+  border-bottom: $sb-inline-drawer-border-bottom;
+}
+.inline-drawer:before {
+  content: "";
+  position: relative;
+  display: block;
+  border-top: $sb-inline-drawer-before-border-top;
+}
+
+.inline-drawer-form .form-control {
+  border: $sb-inline-drawer-form-field-border;
+  background: $sb-inline-drawer-form-field-background;
+  color: $sb-inline-drawer-form-field-color;
+  box-shadow: none;
+  border-radius: 5px;
+}
+.inline-drawer-form .form-control:focus {
+  background: $sb-inline-drawer-form-field-focus-background;
+}
+.inline-drawer-form .control-label {
+  text-transform: uppercase;
+}
+.inline-drawer-form.language-select-form .control-label {
+  text-transform: none;
+  font-weight: normal;
+}
+.has-error .control-label {
+  color: inherit;
+}
+.has-error .form-control {
+  background: $sb-inline-drawer-form-field-has-error-background;
+}
+.has-error .form-control:focus {
+  background: $sb-inline-drawer-form-field-has-error-focus-background;
+  box-shadow: none;
+}
+
+.btn,
+.btn:active,
+.btn:focus,
+.btn:hover {
+  color: inherit;
+  font-weight: bold;
+  border: 0;
+  border-radius: 5px;
+}
+.btn-primary,
+.btn-primary:active,
+.btn-primary:focus,
+.btn-primary:hover,
+.btn-primary.disabled,
+.btn-primary.disabled:hover,
+.btn-primary[disabled],
+.btn-primary[disabled]:hover {
+  color: $btn-primary-color;
+  background-color: $btn-primary-background-color;
+}
+.btn-default,
+.btn-default:active,
+.btn-default:focus,
+.btn-default:hover,
+.btn-default.disabled,
+.btn-default.disabled:hover,
+.btn-default[disabled],
+.btn-default[disabled]:hover {
+  color: $btn-default-color;
+  background-color: $btn-default-background-color;
+}
+
+.btn.disabled,
+.btn[disabled] {
+  pointer-events: auto;
+  opacity: .3;
+}
+
+a.btn {
+  text-decoration: none;
+}
+
+.main-content .grid-sizer {
+  width: $main-content-grid-sizer-width;
+  height: $main-content-grid-sizer-height;
+}
+.main-content .card-container {
+  width: $main-content-card-width;
+  height: $main-content-card-height;
+  background: $main-content-card-background;
+}
+.main-content .card {
+  width: $main-content-card-width;
+  height: $main-content-card-height;
+  background: $main-content-card-background;
+  color: $main-content-card-title-color;
+}
+.main-content .card.theme-grey {
+  border-color: $main-content-card-grey-color;
+  color: $main-content-card-grey-color;
+}
+.main-content .card.theme-blue {
+  border-color: $main-content-card-blue-color;
+  color: $main-content-card-blue-color;
+}
+.main-content .card.theme-red {
+  border-color: $main-content-card-red-color;
+  color: $main-content-card-red-color;
+}
+.main-content .card.theme-green {
+  border-color: $main-content-card-green-color;
+  color: $main-content-card-green-color;
+}
+.main-content .card.theme-orange {
+  border-color: $main-content-card-orange-color;
+  color: $main-content-card-orange-color;
+}
+.main-content .card.theme-pink {
+  border-color: $main-content-card-pink-color;
+  color: $main-content-card-pink-color;
+}
+.main-content .card.theme-purple {
+  border-color: $main-content-card-purple-color;
+  color: $main-content-card-purple-color;
+}
+.main-content .card-icon {
+  top: 10px;
+  background: #fff;
+  width: $main-content-card-icon-width;
+  max-width: $main-content-card-icon-width;
+  height: $main-content-card-icon-height;
+  max-height: $main-content-card-icon-height;
+}
+.main-content .card-title {
+  color: $main-content-card-title-color;
+  font-weight: bold;
+  left: 10px;
+  right: 10px;
+  bottom: 21px;
+  padding: 0;
+  height: 24px;
+  line-height: 24px;
+  background-color: $main-content-card-title-background-color;
+  color: inherit;
+}
+.main-content .card-counter {
+  background: $main-content-card-counter-background;
+  color: $main-content-card-counter-color;
+}
+
+/* Alerts */
+
+.alert-danger {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+}
+.alert {
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+.inline-drawer-grid {
+  .inline-drawer-grid-cell {
+    .bg-select-grid-button {
+      border: 1px solid #222;
+      &:hover {
+        border: 1px solid #fff;
+      }
+    }
+  }
+}
+
+.bottom-spacer {
+  margin-bottom: 10px;
+}
+
+// Sidebar search field
+.sidebar-search-field {
+  color: #fff;
+}
+.sidebar-search-field::-webkit-input-placeholder {
+  font-style: italic;
+  color: rgba(255,255,255,0.7);
+  opacity: 1;
+}
+.sidebar-search-field:-moz-placeholder {
+  font-style: italic;
+  color: rgba(255,255,255,0.7);
+  opacity: 1;
+}
+.sidebar-search-field::-moz-placeholder {
+  font-style: italic;
+  color: rgba(255,255,255,0.7);
+  opacity: 1;
+}
+.sidebar-search-field:-ms-input-placeholder {
+  font-style: italic;
+  color: rgba(255,255,255,0.7);
+  opacity: 1;
+}
+
+@media (max-height: 320px) {
+  .sidebar-button.logo {
+    display: none;
+  }
+  .main-sidebar .sidebar-button {
+    height: 45px;
+  }
+}
